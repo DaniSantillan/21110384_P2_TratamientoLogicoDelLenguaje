@@ -1,0 +1,31 @@
+class Event:
+    def __init__(self, name):
+        self.name = name
+
+class CausalGrammar:
+    def __init__(self):
+        self.events = {}
+
+    def cause(self, event_a, event_b):
+        if event_a not in self.events:
+            self.events[event_a] = []
+        self.events[event_a].append(event_b)
+
+    def is_caused(self, event_a, event_b):
+        return event_b in self.events.get(event_a, [])
+
+# Crear instancias de eventos
+lluvia = Event("Lluvia")
+suelo_mojo = Event("Suelo Mojado")
+
+# Crear una gramática causal
+gramatica = CausalGrammar()
+
+# Establecer una relación causal: Lluvia causa Suelo Mojado
+gramatica.cause(lluvia, suelo_mojo)
+
+# Verificar si la lluvia causa que el suelo esté mojado
+if gramatica.is_caused(lluvia, suelo_mojo):
+    print("La lluvia causa que el suelo esté mojado.")
+else:
+    print("No hay una relación causal entre la lluvia y el suelo mojado.")
