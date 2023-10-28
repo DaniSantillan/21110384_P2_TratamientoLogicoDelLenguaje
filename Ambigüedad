@@ -1,0 +1,11 @@
+valor_usuario = input("Ingresa un número: ")
+
+# Intentamos convertir el valor a un entero
+try:
+    numero = int(valor_usuario)
+    resultado = numero * 2
+    print("El resultado es:", resultado)
+
+# Si la conversión a entero falla, manejamos la excepción
+except ValueError:
+    print("¡Ups! Parece que no ingresaste un número válido.")
