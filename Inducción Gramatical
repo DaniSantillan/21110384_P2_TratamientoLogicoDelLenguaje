@@ -1,0 +1,16 @@
+def pluralize_noun(noun):
+    if noun.endswith('y'):
+        plural_form = noun[:-1] + 'ies'
+    elif noun.endswith(('s', 'x', 'z', 'sh', 'ch')):
+        plural_form = noun + 'es'
+    else:
+        plural_form = noun + 's'
+    return plural_form
+
+# Ejemplos de sustantivos
+ejemplos_sustantivos = ['gato', 'perro', 'ciudad', 'bebé']
+
+# Inducción de reglas
+for sustantivo in ejemplos_sustantivos:
+    plural = pluralize_noun(sustantivo)
+    print(f'Singular: {sustantivo}, Plural: {plural}')
