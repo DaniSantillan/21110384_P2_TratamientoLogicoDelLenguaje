@@ -1,0 +1,43 @@
+TIPO 0 - GRAMATICA IRRESTRICA:
+
+# Regla de producción: A -> α
+producciones_tipo0 = {
+    'A': 'α'
+}
+
+def generar_cadena_tipo0():
+    return 'α'
+
+
+TIPO 1 - GRAMATICA SENSIBLE AL CONTEXTO:
+
+# Regla de producción: α -> β
+producciones_tipo1 = {
+    'α': 'β'
+}
+
+def generar_cadena_tipo1():
+    return 'β'
+
+
+TIPO 2 - GRAMATICA LIBRE DEL CONTEXTO
+
+# Regla de producción: A -> γ
+producciones_tipo2 = {
+    'A': 'γ'
+}
+
+def generar_cadena_tipo2():
+    return 'γ'
+
+
+TIPO 3 - GRAMATICA REGULAR
+
+# Regla de producción: A -> aB | ε
+producciones_tipo3 = {
+    'A': 'aB',
+    'A': 'ε'
+}
+
+def generar_cadena_tipo3():
+    return 'aB'  # o 'ε' para una cadena vacía
