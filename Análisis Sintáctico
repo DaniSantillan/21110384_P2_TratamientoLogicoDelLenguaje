@@ -1,0 +1,35 @@
+import re
+
+def analisis_sintactico(expresion):
+    # Definir la gramática básica para una expresión matemática simple
+    patron = r'^\s*([0-9]+)\s*([+\-*/])\s*([0-9]+)\s*$'
+
+    # Realizar la coincidencia con la expresión proporcionada
+    coincidencia = re.match(patron, expresion)
+
+    if coincidencia:
+        # Si hay una coincidencia, extraer los componentes
+        numero1 = int(coincidencia.group(1))
+        operador = coincidencia.group(2)
+        numero2 = int(coincidencia.group(3))
+
+        # Realizar la operación según el operador
+        if operador == '+':
+            resultado = numero1 + numero2
+        elif operador == '-':
+            resultado = numero1 - numero2
+        elif operador == '*':
+            resultado = numero1 * numero2
+        elif operador == '/':
+            resultado = numero1 / numero2
+
+        # Devolver el resultado
+        return resultado
+    else:
+        # Si no hay coincidencia, indicar un error
+        return "Error de sintaxis"
+
+# Ejemplo de uso
+expresion = "  5  *  3 "
+resultado = analisis_sintactico(expresion)
+print(f"El resultado de '{expresion}' es: {resultado}")
