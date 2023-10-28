@@ -1,0 +1,29 @@
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk.tag import pos_tag
+from nltk.chunk import ne_chunk
+
+nltk.download('punkt')
+nltk.download('maxent_ne_chunker')
+nltk.download('words')
+
+def semantic_analysis(text):
+    # Tokenización de palabras
+    words = word_tokenize(text)
+    
+    # Etiquetado POS (Part-of-Speech)
+    pos_tags = pos_tag(words)
+    
+    # Análisis de entidades con NE (Named Entities)
+    named_entities = ne_chunk(pos_tags)
+    
+    return named_entities
+
+# Ejemplo de texto
+texto_ejemplo = "OpenAI es una empresa de inteligencia artificial."
+
+# Realizar análisis semántico
+resultado_analisis = semantic_analysis(texto_ejemplo)
+
+# Imprimir el resultado
+print(resultado_analisis)
