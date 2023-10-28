@@ -1,0 +1,25 @@
+import re
+
+def analizador_lexico(expresion):
+    # Definimos las expresiones regulares para números y operadores
+    patron_numero = r'\d+(\.\d+)?'
+    patron_operador = r'[\+\-\*/]'
+
+    # Combinamos los patrones en una expresión regular completa
+    patron_completo = f'({patron_numero})|({patron_operador})'
+
+    # Inicializamos el analizador léxico con la cadena de entrada
+    analizador = re.finditer(patron_completo, expresion)
+
+    # Iteramos sobre las coincidencias y las clasificamos
+    for match in analizador:
+        numero, operador = match.groups()
+
+        if numero:
+            print(f'Número: {numero}')
+        elif operador:
+            print(f'Operador: {operador}')
+
+# Ejemplo de uso
+expresion = "3.14 + 2 * 5"
+analizador_lexico(expresion)
